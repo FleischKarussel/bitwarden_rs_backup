@@ -3,8 +3,10 @@
 # Check preconditions
 [ -z "$SOURCE_DATABASE" ] && echo "SOURCE_DATABASE not set!" && exit 1;
 [ -z "$BACKUP_DATABASE" ] && echo "BACKUP_DATABASE not set!" && exit 1;
-[ -d "$(dirname '$SOURCE_DATABASE')" ] && echo "SOURCE_DATABASE folder not mounted $(dirname '$SOURCE_DATABASE')!" && exit 1;
-[ -d "$(dirname '$BACKUP_DATABASE')" ] && echo "BACKUP_DATABASE folder not mounted $(dirname '$BACKUP_DATABASE')!" && exit 1;
+SOURCE_DIR=$(dirname "$SOURCE_DATABASE")
+BACKUP_DIR=$(dirname "$BACKUP_DATABASE")
+[ -d "$SOURCE_DIR" ] && echo "SOURCE_DATABASE folder not mounted ($SOURCE_DIR)!" && exit 1;
+[ -d "$BACKUP_DIR" ] && echo "BACKUP_DATABASE folder not mounted ($BACKUP_DIR)!" && exit 1;
 
 # Generate timestamp and timestamp file
 TIMESTAMP=$(date '+%F-%H%M%S')
