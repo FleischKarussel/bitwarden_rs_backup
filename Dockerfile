@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 RUN apk add --update sqlite
-COPY start.sh
+COPY start.sh /
 
 CMD /start.sh
 
