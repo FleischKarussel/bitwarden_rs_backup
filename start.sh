@@ -5,8 +5,8 @@
 [ -z "$BACKUP_DATABASE" ] && echo "BACKUP_DATABASE not set!" && exit 1;
 SOURCE_DIR=$(dirname "$SOURCE_DATABASE")
 BACKUP_DIR=$(dirname "$BACKUP_DATABASE")
-[ -d "$SOURCE_DIR" ] && echo "SOURCE_DATABASE folder not mounted ($SOURCE_DIR)!" && exit 1;
-[ -d "$BACKUP_DIR" ] && echo "BACKUP_DATABASE folder not mounted ($BACKUP_DIR)!" && exit 1;
+[ ! -d "$SOURCE_DIR" ] && echo "SOURCE_DATABASE folder not mounted ($SOURCE_DIR)!" && exit 1;
+[ ! -d "$BACKUP_DIR" ] && echo "BACKUP_DATABASE folder not mounted ($BACKUP_DIR)!" && exit 1;
 
 # Generate timestamp and timestamp file
 TIMESTAMP=$(date '+%F-%H%M%S')
